@@ -1,4 +1,4 @@
-import re
+import pandas as pd
 
 # tab separated csv file
 input_filepath = 'input.csv'
@@ -6,14 +6,9 @@ input_filepath = 'input.csv'
 # comma sepatated csv file
 output_filepath = 'output.csv'
 
-
-def tabtocomma(input_filepath, output_filepath):
-    with open(input_filepath, 'r', encoding="ISO-8859-1") as myfile:
-        with open(output_filepath, 'w') as csv_file:
-            for line in myfile:
-                fileContent = re.sub("\t", ",", line)
-                csv_file.write(fileContent)
-    print("Successfully made csv file")
-
-
-tabtocomma(input_filepath, output_filepath)
+# You need to tell Pandas that the file is tab delimited when you import it.
+# You can pass a delimiter to the read_csv method but in your case,
+# since the delimiter changes by file, you want to pass None -
+# this will make Pandas auto-detect the correct delimiter.
+data = pd.read_csv(input_filepath, sep=None, engine='python')
+data.to_csv(output_filepath, encoding="utf-8", index=False)
