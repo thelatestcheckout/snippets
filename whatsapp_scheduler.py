@@ -10,17 +10,6 @@ def _web(phone_number):
          phone_number + "&text=")
 
 
-def findtextbox():
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    location = locateOnScreen(f"{dir_path}\\data\\pywhatkit_smile1.png")
-    try:
-        moveTo(location[0] + 150, location[1] + 5)
-    except Exception:
-        location = locateOnScreen(f"{dir_path}\\data\\pywhatkit_smile.png")
-        moveTo(location[0] + 150, location[1] + 5)
-    click()
-
-
 def send_message(message, phone_number, wait_time):
     _web(phone_number)
     time.sleep(7)
