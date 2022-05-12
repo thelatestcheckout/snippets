@@ -47,8 +47,7 @@ def sendwhatsappmessage(phone_number, message, time_hour, time_minutes, wait_tim
     print("Whatsapp scheduler ended")
 
 
-# phone_number = "+918821885767"
-phone_number = "+4917630169848"
+phone_number = "+91xxxxxx"
 message = "Good morning."
 time_hour = 1
 time_minutes = 32
